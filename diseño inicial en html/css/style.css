@@ -307,7 +307,7 @@ button {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: var(--shadow-color) 0px 4px 8px;
+    /* box-shadow: var(--shadow-color) 0px 4px 8px; */
 }
 
 .carousel-track {
@@ -315,7 +315,7 @@ button {
     transition: transform 0.5s ease-in-out;
     width: 100%;
     height: 400px;
-    padding-bottom: 10px;
+   
 }
 
 .carousel-track img {
