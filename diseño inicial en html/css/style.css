@@ -1,0 +1,623 @@
+/* public/css/style.css */
+
+/* Paleta por defecto (Clara): Moderna y Contrastada (sin cambios) */
+:root {
+    --primary-color: #007BFF; /* Azul Brillante - Títulos, botones principales */
+    --secondary-color: #6C757D; /* Gris Medio - Texto secundario, bordes */
+    --accent-color: #FF8C00; /* Naranja Oscuro (Dorado) - Botones de acción, highlights */
+    --text-color: #343A40; /* Gris Oscuro Profundo - Texto principal */
+    --bg-color-light: #F8F9FA; /* Blanco muy claro - Fondo principal */
+    --bg-color-dark: #E9ECEF; /* Gris muy claro - Fondos de secciones, tarjetas */
+    --border-color: #DEE2E6; /* Gris muy claro - Bordes sutiles */
+    --white: #FFFFFF; /* Blanco puro */
+    --shadow-color: rgba(0,0,0,0.1); /* Sombra estándar */
+}
+
+/* Modo Oscuro: Paleta de Alto Contraste (sin cambios) */
+body.dark-mode {
+    --primary-color: #61DAFB; /* Azul Cian Claro - Títulos, botones principales */
+    --secondary-color: #B0B0B0; /* Gris Claro - Texto secundario, bordes */
+    --accent-color: #FFD700; /* Oro - Botones de acción, highlights */
+    --text-color: #E0E0E0; /* Gris casi blanco - Texto principal */
+    --bg-color-light: #1A1A1A; /* Negro muy oscuro - Fondo principal */
+    --bg-color-dark: #2A2A2A; /* Gris oscuro - Fondos de secciones, tarjetas, modal */
+    --border-color: #444444; /* Gris oscuro - Bordes */
+    --white: #1A1A1A; /* Usamos el color de fondo para elementos que eran blancos */
+    --shadow-color: rgba(0,255,255,0.05); /* Sombra sutil y fría */
+}
+
+/* Ajustes de Hover para la Paleta Clara (sin cambios) */
+.btn-primary:hover,
+.portfolio-card .view-portfolio:hover {
+    background-color: #0056b3; /* Un tono más oscuro del primary-color */
+}
+
+.search-bar button:hover {
+    background-color: #CC7000; /* Un tono más oscuro del accent-color */
+}
+
+/* Ajustes de Hover para la Paleta Oscura (sin cambios) */
+body.dark-mode .btn-primary:hover,
+body.dark-mode .portfolio-card .view-portfolio:hover {
+    background-color: #21A1F1; /* Un azul más vibrante para hover en oscuro */
+}
+
+body.dark-mode .search-bar button:hover {
+    background-color: #CCA300; /* Un tono más oscuro del accent-color oscuro */
+}
+
+body.dark-mode .carousel-button:hover {
+    background-color: rgba(255,255,255,0.3); /* Botones de carrusel más claros en hover oscuro */
+}
+
+/* Base (sin cambios significativos, solo overflow-x: hidden si no estaba) */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color-light);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden; /* Evita el scroll horizontal innecesario */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    margin-right: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #808080;
+}
+
+/* Header (sin cambios significativos) */
+.main-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    box-shadow: var(--shadow-color) 0px 2px 4px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+    gap: 5px;
+    flex-grow: 1;
+    margin: 10px 20px;
+    max-width: 500px;
+}
+
+.search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    background-color: var(--white);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.search-bar button {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.main-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilos para el display de usuario logeado (sin cambios) */
+.logged-in-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/* Main Content (sin cambios) */
+.main-content {
+    padding: 40px 20px;
+}
+
+.main-content h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+
+.portfolios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.portfolio-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-color) 0px 3px 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-color) 0px 5px 10px;
+}
+
+.portfolio-card img.portfolio-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.portfolio-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin: 0 0 5px 0;
+    padding: 0 15px;
+}
+
+.portfolio-card p {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin: 0 0 15px 0;
+    padding: 0 15px;
+}
+
+.portfolio-card .view-portfolio {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Modal Styling (Galería, sin cambios significativos) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #252728e8;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 15% auto;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 28px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    position: relative;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.close-button {
+    color: var(--secondary-color);
+    float: right;
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalPortfolioTitle {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#modalPortfolioArtist {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow-color) 0px 4px 8px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 400px;
+}
+
+.carousel-track img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-dots-container {
+    text-align: center;
+    padding: 15px 0 0;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+/* --- Nuevo estilo para el panel lateral de Login --- */
+.login-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; /* Ocupa todo el ancho en móviles */
+    
+    height: 100%;
+    background-color: #252728e8; /* Fondo semitransparente como el modal */
+    z-index: 1002; /* Más alto que el modal normal */
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+    opacity: 0; /* Oculto por defecto */
+    visibility: hidden; /* Oculto para accesibilidad */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.login-panel.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.login-panel-content {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 600px; /* Ancho real del panel visible */
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.5) -5px 0px 20px 0px; /* Sombra a la izquierda */
+    transform: translateX(100%); /* Oculto a la derecha */
+    transition: transform 0.4s ease-out; /* Animación de deslizamiento */
+    display: flex; /* Para la imagen y el formulario */
+    flex-direction: row; /* Imagen a la izquierda, formulario a la derecha */
+    position: relative; /* Para el botón de cerrar */
+    overflow-y: auto; /* Permite scroll si el contenido es largo */
+}
+
+.login-panel.active .login-panel-content {
+    transform: translateX(0); /* Se desliza a la vista */
+}
+
+/* Ajuste del botón de cerrar para el panel */
+.login-panel .close-button {
+    color: var(--secondary-color);
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute; /* Absoluto con respecto al panel-content */
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10; /* Asegura que esté por encima de la imagen/formulario */
+}
+.login-panel .close-button:hover {
+    color: var(--primary-color);
+}
+
+
+/* .login-image-container {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color-dark); 
+    padding: 20px;
+}
+
+.login-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+    border-radius: 8px;
+    box-shadow: var(--shadow-color) 0px 4px 10px;
+} */
+
+.login-image-container {
+    flex: 1;
+    display: flex; /* Ahora un flex container para las imágenes */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    background-color: var(--bg-color-dark);
+    padding: 20px;
+    position: relative; /* Necesario para posicionar las imágenes absolutamente */
+    overflow: hidden; /* Asegura que las imágenes no se salgan del contenedor */
+}
+
+.login-image-container img {
+    position: absolute; /* Para que las imágenes se superpongan */
+    top: 50%; /* Centrado vertical */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste fino para centrado perfecto */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortar */
+    border-radius: 8px;
+    box-shadow: var(--shadow-color) 0px 4px 10px;
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 1s ease-in-out; /* Transición para el fade */
+}
+
+.login-image-container img.active-slide {
+    opacity: 1; /* Mostrar la imagen activa */
+}
+
+/* Responsividad para el panel de login */
+@media (max-width: 768px) {
+    /* ... (mantener tu media query existente) ... */
+
+    .login-image-container {
+        height: 180px; /* Un poco más de altura en móviles si las imágenes son verticales */
+        padding: 10px;
+    }
+}
+
+
+
+
+/* #################### */
+
+.login-form-container {
+    flex: 1.2; /* Ocupa un poco más de espacio que la imagen */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.login-form-container h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* max-width: 300px; ya controlado por flex-basis */
+    margin: 0 auto; /* Centra el formulario dentro de su contenedor */
+    text-align: left;
+    width: 100%; /* Asegura que el formulario ocupe el 100% de su contenedor padre */
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--bg-color-light);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.login-form button[type="submit"] {
+    align-self: flex-end;
+    margin-top: 10px;
+    width: auto;
+    min-width: 120px; /* Ancho mínimo para el botón */
+}
+
+.login-message {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    color: red; /* Error */
+    /* Colores para el mensaje de éxito */
+    &.success {
+        color: green;
+    }
+}
+
+.register-text {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+.register-text a {
+    font-weight: bold;
+}
+
+
+/* --- Responsividad para el panel de login --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .main-nav {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    .main-nav button, .main-nav .logged-in-display {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .main-nav .logged-in-display button {
+        width: auto;
+    }
+
+    .portfolios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .carousel-track {
+        height: 250px;
+    }
+
+    /* Para el panel de login en móviles */
+    .login-panel {
+        max-width: 100%; /* Ocupa todo el ancho en móviles */
+    }
+    .login-panel-content {
+        flex-direction: column; /* Apila imagen y formulario */
+        max-width: 100%; /* Asegura que el contenido ocupe el ancho del panel */
+    }
+    .login-image-container {
+        height: 150px; /* Altura fija para la imagen en móviles */
+        padding: 10px;
+    }
+    .login-form-container {
+        padding: 20px;
+    }
+}
