@@ -393,5 +393,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('isLoggedIn') === 'true') {
         isLoggedIn = true;
     }
-    updateLoginState(); // Actualiza el UI según el estado de login
+    // updateLoginState(); // Actualiza el UI según el estado de login
 });

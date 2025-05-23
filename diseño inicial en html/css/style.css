@@ -369,20 +369,27 @@ button {
 }
 
 /* --- Nuevo estilo para el panel lateral de Login --- */
+/* public/css/style.css */
+
+/* ... (mantener tus estilos existentes) ... */
+
+/* MODIFICACIÓN: Estilo para el panel de Login como un Modal (asegúrate de que esté así) */
 .login-panel {
     position: fixed;
+    z-index: 1002;
+    left: 0;
     top: 0;
-    right: 0;
-    width: 100%; /* Ocupa todo el ancho en móviles */
-    
+    width: 100%;
     height: 100%;
-    background-color: #252728e8; /* Fondo semitransparente como el modal */
-    z-index: 1002; /* Más alto que el modal normal */
-    display: flex;
-    justify-content: flex-end; /* Alinea el contenido a la derecha */
-    opacity: 0; /* Oculto por defecto */
-    visibility: hidden; /* Oculto para accesibilidad */
+    background-color: #252728e8;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
 }
 
 .login-panel.active {
@@ -392,35 +399,65 @@ button {
 
 .login-panel-content {
     background-color: var(--white);
-    width: 100%;
-    max-width: 600px; /* Ancho real del panel visible */
-    height: 100%;
-    box-shadow: rgba(0, 0, 0, 0.5) -5px 0px 20px 0px; /* Sombra a la izquierda */
-    transform: translateX(100%); /* Oculto a la derecha */
-    transition: transform 0.4s ease-out; /* Animación de deslizamiento */
-    display: flex; /* Para la imagen y el formulario */
-    flex-direction: row; /* Imagen a la izquierda, formulario a la derecha */
-    position: relative; /* Para el botón de cerrar */
-    overflow-y: auto; /* Permite scroll si el contenido es largo */
+    margin: auto;
+    padding: 0;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1035px;
+    max-height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 28px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Importante para las dos columnas */
+    overflow: hidden;
 }
 
-.login-panel.active .login-panel-content {
-    transform: translateX(0); /* Se desliza a la vista */
-}
-
-/* Ajuste del botón de cerrar para el panel */
+/* El close-button ya está bien posicionado */
 .login-panel .close-button {
-    color: var(--secondary-color);
-    font-size: 35px;
-    font-weight: bold;
-    position: absolute; /* Absoluto con respecto al panel-content */
-    top: 15px;
-    right: 20px;
-    cursor: pointer;
-    z-index: 10; /* Asegura que esté por encima de la imagen/formulario */
+    /* ... tus estilos para el botón de cerrar ... */
 }
-.login-panel .close-button:hover {
-    color: var(--primary-color);
+
+.login-image-container {
+    flex: 1;
+    display: flex; /* Ahora un flex container para las imágenes */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    background-color: var(--bg-color-dark);
+    padding: 20px;
+    position: relative; /* Necesario para posicionar las imágenes absolutamente */
+    overflow: hidden;
+}
+
+
+
+.login-image-container img.active-slide {
+    opacity: 1; /* Mostrar la imagen activa */
+}
+
+.login-form-container {
+    flex: 1.2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--white);
+}
+
+/* ... (Responsividad para el panel de login en @media (max-width: 768px)) ... */
+@media (max-width: 768px) {
+    .login-panel-content {
+        flex-direction: column; /* Apila imagen y formulario en móviles */
+        width: 95%;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+    .login-image-container {
+        height: 180px; /* Altura fija para la imagen en móviles */
+        padding: 10px;
+    }
+    .login-form-container {
+        padding: 20px;
+    }
 }
 
 
@@ -460,8 +497,9 @@ button {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortar */
-    border-radius: 8px;
-    box-shadow: var(--shadow-color) 0px 4px 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    /* box-shadow: var(--shadow-color) 0px 4px 10px; */
     opacity: 0; /* Oculto por defecto */
     transition: opacity 1s ease-in-out; /* Transición para el fade */
 }
@@ -486,8 +524,8 @@ button {
 /* #################### */
 
 .login-form-container {
-    flex: 1.2; /* Ocupa un poco más de espacio que la imagen */
-    padding: 30px;
+    flex: 0.2; /* Ocupa un poco más de espacio que la imagen */
+    padding: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra verticalmente el contenido */
