@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artesanos.com - Descubre obras de arte</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="img/icon/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/prueba.css">
+
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <h1 class="logo"><a href="#">Artesanos.com</a></h1>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar imágenes, usuarios, álbumes...">
+                <button id="searchButton">Buscar</button>
+            </div>
+            <nav class="main-nav">
+                <div class="notification-icon-container">
+                    <button id="notificationButton" class="btn btn-secondary notification-button">
+                        <i class="fas fa-bell"></i>
+                        <span id="notificationCount" class="notification-count">0</span>
+                    </button>
+                    <div id="notificationDropdown" class="dropdown-menu notification-dropdown">
+                        <div class="dropdown-header">Notificaciones</div>
+                        <div class="notification-list" id="notificationList"></div>
+                        <div class="dropdown-footer">
+                            <a href="#" id="viewAllNotifications">Ver todas las notificaciones</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--     <div class="user-profile-dropdown-container">
+                    <button id="userProfileButton" class="btn btn-secondary user-profile-button">
+                        Perfil <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div id="userProfileDropdown" class="dropdown-menu user-profile-dropdown">
+                        <a href="#" class="dropdown-item" id="viewProfileLink">Editar Perfil</a>
+                        <button class="dropdown-item" id="themeToggleDropdown">Modo Oscuro</button>
+                        <button class="dropdown-item" id="logoutButton">Cerrar Sesión</button>
+                    </div>
+                </div> -->
+                <div class="user-profile-dropdown-container">
+                    <button id="userProfileButton" class="btn btn-secondary user-profile-button">
+                        <img src="img/icon/perfil.jpg" alt="Foto de perfil" class="profile-avatar">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div id="userProfileDropdown" class="dropdown-menu user-profile-dropdown">
+                        <a href="#" class="dropdown-item" id="viewProfileLink">Editar Perfil</a>
+                        <button class="dropdown-item" id="themeToggleDropdown">Modo Oscuro</button>
+                        <button class="dropdown-item" id="logoutButton">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sub-menu">
+        <div class="container sub-menu-content">
+            <button class="sub-menu-btn active" data-section="albums">Álbumes</button>
+            <button class="sub-menu-btn" data-section="friends">Amistades</button>
+            <button class="sub-menu-btn" data-section="portfolio">Mi Portafolio</button>
+            <button class="sub-menu-btn" data-section="stats">Estadísticas</button>
+        </div>
+    </nav>
+
+    <main class="container main-content">
+        <section id="albumsSection" class="content-section active">
+            <h2 class="section-title">Mis Álbumes</h2>
+            <button id="addAlbumButton" class="add-album-button">
+                <i class="fas fa-plus"></i> Agregar Álbum
+            </button>
+            <div class="albums-grid" id="albumsGrid">
+            </div>
+        </section>
+
+        <section id="friendsSection" class="content-section">
+            <h2>Mis Amistades</h2>
+            <p>Aquí se mostrarán tus amigos.</p>
+
+            <div class="contenedor-imagen">
+                <div class="carpeta-imagen"></div>
+            </div>
+        </section>
+
+        <section id="portfolioSection" class="content-section">
+            <h2>Mi Portafolio</h2>
+            <div class="portfolios-grid">
+            </div>
+        </section>
+
+        <section id="statsSection" class="content-section">
+            <h2>Estadísticas</h2>
+            <p>Aquí se mostrarán tus estadísticas y logros.</p>
+        </section>
+    </main>
+
+
+
+    <div id="ModalGaleria" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeModal">&times;</span>
+            <h3 id="modalTitulo">Título del Portafolio</h3>
+           
+
+            <div class="carousel-container">
+                <div id="modalGallery" class="modal-gallery carousel-track">
+                </div>
+                <button class="carousel-button prev" id="carouselPrevBtn">&#10094;</button>
+                <button class="carousel-button next" id="carouselNextBtn">&#10095;</button>
+            </div>
+
+            <div class="carousel-dots-container" id="carouselDots">
+            </div>
+        </div>
+    </div>
+
+    <aside id="loginPanel" class="login-panel">
+        <div class="login-panel-content">
+        </div>
+    </aside>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

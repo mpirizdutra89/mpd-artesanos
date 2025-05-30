@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artesanos.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            /* Light gray background */
+        }
+
+        .navbar-custom {
+            background-color: #ffffff;
+            /* White background for navbar */
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .navbar-brand {
+            color: #007bff !important;
+            /* Blue for brand name */
+            font-weight: bold;
+        }
+
+        .btn-search {
+            background-color: #ffc107;
+            /* Orange for search button */
+            border-color: #ffc107;
+            color: #ffffff;
+        }
+
+        .btn-dark-mode {
+            background-color: #6c757d;
+            /* Gray for dark mode button */
+            border-color: #6c757d;
+            color: #ffffff;
+        }
+
+        .btn-login {
+            background-color: #007bff;
+            /* Blue for login button */
+            border-color: #007bff;
+            color: #ffffff;
+        }
+
+        .featured-portfolios-title {
+            color: #007bff;
+            /* Blue for featured portfolios title */
+            font-weight: bold;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .card-custom {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img-top-custom {
+            height: 200px;
+            /* Fixed height for images */
+            object-fit: cover;
+            /* Ensure images cover the area */
+        }
+
+        .card-body-custom {
+            padding: 15px;
+        }
+
+        .card-title-custom {
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 5px;
+        }
+
+        .card-text-custom {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .btn-view-portfolio {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #ffffff;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">Artesanos.com</a>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Buscar imágenes, usuarios, álbumes"
+                        aria-label="Search">
+                    <button class="btn btn-search" type="submit">Buscar</button>
+                </form>
+                <button class="btn btn-dark-mode me-2" type="button">Modo Oscuro</button>
+                <button class="btn btn-login" type="button">Iniciar Sesión</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <h2 class="featured-portfolios-title">Portafolios Destacados</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 card-custom">
+                    <img src="https://via.placeholder.com/400x200/343a40/ffffff?text=Lobo+Blanco"
+                        class="card-img-top card-img-top-custom" alt="Ana Silva - Lobo Blanco">
+                    <div class="card-body card-body-custom">
+                        <h5 class="card-title card-title-custom">Ana Silva</h5>
+                        <p class="card-text card-text-custom">Paisajes Mágicos</p>
+                        <a href="#" class="btn btn-view-portfolio">Ver Portafolio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-custom">
+                    <img src="https://via.placeholder.com/400x200/dc3545/ffffff?text=Personajes+Abstractos"
+                        class="card-img-top card-img-top-custom" alt="Beto Ruiz - Personajes Abstractos">
+                    <div class="card-body card-body-custom">
+                        <h5 class="card-title card-title-custom">Beto Ruiz</h5>
+                        <p class="card-text card-text-custom">Retratos Urbanos</p>
+                        <a href="#" class="btn btn-view-portfolio">Ver Portafolio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-custom">
+                    <img src="https://via.placeholder.com/400x200/17a2b8/ffffff?text=Arte+Digital"
+                        class="card-img-top card-img-top-custom" alt="Carla Gómez - Arte Digital">
+                    <div class="card-body card-body-custom">
+                        <h5 class="card-title card-title-custom">Carla Gómez</h5>
+                        <p class="card-text card-text-custom">Abstracciones Digitales</p>
+                        <a href="#" class="btn btn-view-portfolio">Ver Portafolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

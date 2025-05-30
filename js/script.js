@@ -180,71 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /*   // --- Lógica del Login Panel (Nuevo) ---
-      function openLoginPanel() {
-          loginPanel.classList.add('active'); // Activa la clase para mostrarlo
-          body.style.overflow = 'hidden'; // Evita el scroll del body
-          loginMessage.textContent = ''; // Limpia mensajes anteriores
-          loginMessage.classList.remove('success'); // Asegura que no tenga clase éxito
-          loginForm.reset(); // Resetea el formulario
-          usernameInput.focus(); // Enfoca el primer campo
-  
-          // Opcional: Cargar una imagen aleatoria para el login si tienes más de una
-          const randomImageIndex = Math.floor(Math.random() * dummyPortfolios.length);
-          loginArtImage.src = dummyPortfolios[randomImageIndex].thumbnail;
-          loginArtImage.alt = `Arte de ${dummyPortfolios[randomImageIndex].artistName}`;
-      }
-  
-      function closeLoginPanel() {
-          loginPanel.classList.remove('active'); // Quita la clase para ocultarlo
-          body.style.overflow = ''; // Restaura el scroll del body
-      }
-  
-      function handleLogin(event) {
-          event.preventDefault(); // Evita que el formulario se envíe realmente
-  
-          const username = usernameInput.value;
-          const password = passwordInput.value;
-  
-          // Simulación de validación de login
-          if (username === 'user' && password === 'password') {
-              loginMessage.textContent = '¡Inicio de sesión exitoso!';
-              loginMessage.style.color = 'green'; // Directamente
-              loginMessage.classList.add('success'); // Para posibles estilos CSS
-              isLoggedIn = true;
-              localStorage.setItem('isLoggedIn', 'true');
-              localStorage.setItem('loggedInUsername', username);
-              updateLoginState();
-              setTimeout(() => {
-                  closeLoginPanel(); // Cierra el panel después de 1 segundo
-              }, 1000);
-          } else {
-              loginMessage.textContent = 'Usuario o contraseña incorrectos.';
-              loginMessage.style.color = 'red';
-              loginMessage.classList.remove('success');
-              isLoggedIn = false;
-          }
-      }
-  
-      function handleLogout() {
-          isLoggedIn = false;
-          localStorage.removeItem('isLoggedIn');
-          localStorage.removeItem('loggedInUsername');
-          updateLoginState();
-          alert('Sesión cerrada.');
-      }
-  
-      function updateLoginState() {
-          if (isLoggedIn) {
-              loginButton.style.display = 'none';
-              loggedInUserDisplay.style.display = 'flex';
-              usernameDisplay.textContent = localStorage.getItem('loggedInUsername');
-          } else {
-              loginButton.style.display = 'block';
-              loggedInUserDisplay.style.display = 'none';
-              usernameDisplay.textContent = '';
-          }
-      } */
+
 
 
     const loginImageContainer = document.querySelector('.login-image-container');
@@ -393,5 +329,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('isLoggedIn') === 'true') {
         isLoggedIn = true;
     }
-    // updateLoginState(); // Actualiza el UI según el estado de login
+
 });

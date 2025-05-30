@@ -1,0 +1,1407 @@
+/* public/css/style.css */
+
+        /* Paleta por defecto (Clara): Moderna y Contrastada (sin cambios) */
+        :root {
+            --primary-color: #007BFF;
+            /* Azul Brillante - Títulos, botones principales */
+            --secondary-color: #6C757D;
+            /* Gris Medio - Texto secundario, bordes */
+            --accent-color: #FF8C00;
+            /* Naranja Oscuro (Dorado) - Botones de acción, highlights */
+            --text-color: #343A40;
+            /* Gris Oscuro Profundo - Texto principal */
+            --bg-color-light: #F8F9FA;
+            /* Blanco muy claro - Fondo principal */
+            --bg-color-dark: #E9ECEF;
+            /* Gris muy claro - Fondos de secciones, tarjetas */
+            --border-color: #DEE2E6;
+            /* Gris muy claro - Bordes sutiles */
+            --white: #FFFFFF;
+            /* Blanco puro */
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            /* Sombra estándar */
+            --trasparente: rgba(156, 156, 156, 0);
+        }
+
+        /* Modo Oscuro: Paleta de Alto Contraste (sin cambios) */
+        body.dark-mode {
+            --primary-color: #61DAFB;
+            /* Azul Cian Claro - Títulos, botones principales */
+            --secondary-color: #B0B0B0;
+            /* Gris Claro - Texto secundario, bordes */
+            --accent-color: #FFD700;
+            /* Oro - Botones de acción, highlights */
+            --text-color: #E0E0E0;
+            /* Gris casi blanco - Texto principal */
+            --bg-color-light: #1A1A1A;
+            /* Negro muy oscuro - Fondo principal */
+            --bg-color-dark: #2A2A2A;
+            /* Gris oscuro - Fondos de secciones, tarjetas, modal */
+            --border-color: #444444;
+            /* Gris oscuro - Bordes */
+            --white: #1A1A1A;
+            --white2:#FFFFFF;
+            /* Usamos el color de fondo para elementos que eran blancos */
+            --shadow-color: rgba(0, 255, 255, 0.05);
+            /* Sombra sutil y fría */
+        }
+
+        /* Ajustes de Hover para la Paleta Clara (sin cambios) */
+        .btn-primary:hover,
+        .portfolio-card .view-portfolio:hover {
+            background-color: #0056b3;
+            /* Un tono más oscuro del primary-color */
+        }
+
+        .search-bar button:hover {
+            background-color: #CC7000;
+            /* Un tono más oscuro del accent-color */
+        }
+
+        /* Ajustes de Hover para la Paleta Oscura (sin cambios) */
+        body.dark-mode .btn-primary:hover,
+        body.dark-mode .portfolio-card .view-portfolio:hover {
+            background-color: #21A1F1;
+            /* Un azul más vibrante para hover en oscuro */
+        }
+
+        body.dark-mode .search-bar button:hover {
+            background-color: #CCA300;
+            /* Un tono más oscuro del accent-color oscuro */
+        }
+
+        body.dark-mode .carousel-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            /* Botones de carrusel más claros en hover oscuro */
+        }
+
+        /* Base (sin cambios significativos, solo overflow-x: hidden si no estaba) */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-light);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: hidden;
+            /* Evita el scroll horizontal innecesario */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            margin-right: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #808080;
+        }
+
+        /* Header (sin cambios significativos) */
+        .main-header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+            box-shadow: var(--shadow-color) 0px 2px 4px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 5px;
+            flex-grow: 1;
+            margin: 10px 20px;
+            max-width: 500px;
+        }
+
+        .search-bar input[type="text"] {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 0.95rem;
+            background-color: var(--white);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .search-bar button {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .main-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Estilos para el display de usuario logeado (sin cambios) */
+        .logged-in-display {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        /* Main Content (sin cambios) */
+        .main-content {
+            padding: 40px 20px;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+
+        .portfolios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .portfolio-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-color) 0px 3px 6px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-color) 0px 5px 10px;
+        }
+
+        .portfolio-card img.portfolio-thumbnail {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin: 0 0 5px 0;
+            padding: 0 15px;
+        }
+
+        .portfolio-card p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+            margin: 0 0 15px 0;
+            padding: 0 15px;
+        }
+
+        .portfolio-card .view-portfolio {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Modal Styling (Galería, sin cambios significativos) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #252728e8;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 15% auto;
+            padding: 25px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 28px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            position: relative;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .close-button {
+            color: var(--secondary-color);
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #modalPortfolioTitle {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        #modalPortfolioArtist {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            /* box-shadow: var(--shadow-color) 0px 4px 8px; */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 400px;
+
+        }
+
+        .carousel-track img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        .carousel-dots-container {
+            text-align: center;
+            padding: 15px 0 0;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* --- Nuevo estilo para el panel lateral de Login --- */
+        /* public/css/style.css */
+
+        /* ... (mantener tus estilos existentes) ... */
+
+        /* MODIFICACIÓN: Estilo para el panel de Login como un Modal (asegúrate de que esté así) */
+        .login-panel {
+            position: fixed;
+            z-index: 1002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #252728e8;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            display: flex;
+        }
+
+        .login-panel.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-panel-content {
+            background-color: var(--white);
+            margin: auto;
+            padding: 0;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 995px;
+            max-height: 90vh;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 28px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            /* Importante para las dos columnas */
+            overflow: hidden;
+        }
+
+        /* El close-button ya está bien posicionado */
+        .login-panel .close-button {
+            /* ... tus estilos para el botón de cerrar ... */
+        }
+
+        .login-image-container {
+            flex: 1;
+            display: flex;
+            /* Ahora un flex container para las imágenes */
+            justify-content: center;
+            /* Centrar horizontalmente */
+            align-items: center;
+            /* Centrar verticalmente */
+            background-color: var(--bg-color-dark);
+            padding: 20px;
+            position: relative;
+            /* Necesario para posicionar las imágenes absolutamente */
+            overflow: hidden;
+        }
+
+
+
+        .login-image-container img.active-slide {
+            opacity: 1;
+            /* Mostrar la imagen activa */
+        }
+
+        .login-form-container {
+            flex: 1.2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--white);
+        }
+
+        /* ... (Responsividad para el panel de login en @media (max-width: 768px)) ... */
+        @media (max-width: 768px) {
+            .login-panel-content {
+                flex-direction: column;
+                /* Apila imagen y formulario en móviles */
+                width: 95%;
+                max-height: 95vh;
+                overflow-y: auto;
+            }
+
+            .login-image-container {
+                height: 180px;
+                /* Altura fija para la imagen en móviles */
+                padding: 10px;
+            }
+
+            .login-form-container {
+                padding: 20px;
+            }
+        }
+
+
+
+        .login-image-container {
+            flex: 1;
+            display: flex;
+            /* Ahora un flex container para las imágenes */
+            justify-content: center;
+            /* Centrar horizontalmente */
+            align-items: center;
+            /* Centrar verticalmente */
+            background-color: var(--bg-color-dark);
+            padding: 20px;
+            position: relative;
+            /* Necesario para posicionar las imágenes absolutamente */
+            overflow: hidden;
+            /* Asegura que las imágenes no se salgan del contenedor */
+        }
+
+        .login-image-container img {
+            position: absolute;
+            /* Para que las imágenes se superpongan */
+            top: 50%;
+            /* Centrado vertical */
+            left: 50%;
+            /* Centrado horizontal */
+            transform: translate(-50%, -50%);
+            /* Ajuste fino para centrado perfecto */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* Ajusta la imagen dentro del contenedor sin recortar */
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            /* box-shadow: var(--shadow-color) 0px 4px 10px; */
+            opacity: 0;
+            /* Oculto por defecto */
+            transition: opacity 1s ease-in-out;
+            /* Transición para el fade */
+        }
+
+        .login-image-container img.active-slide {
+            opacity: 1;
+            /* Mostrar la imagen activa */
+        }
+
+        /* Responsividad para el panel de login */
+        @media (max-width: 768px) {
+            /* ... (mantener tu media query existente) ... */
+
+            .login-image-container {
+                height: 180px;
+                /* Un poco más de altura en móviles si las imágenes son verticales */
+                padding: 10px;
+            }
+        }
+
+
+
+
+        /* #################### */
+
+        .login-form-container {
+            flex: 0.2;
+            /* Ocupa un poco más de espacio que la imagen */
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Centra verticalmente el contenido */
+        }
+
+        .login-form-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* max-width: 300px; ya controlado por flex-basis */
+            margin: 0 auto;
+            /* Centra el formulario dentro de su contenedor */
+            text-align: left;
+            width: 100%;
+            /* Asegura que el formulario ocupe el 100% de su contenedor padre */
+        }
+
+        .login-form .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: var(--bg-color-light);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        .login-form input[type="text"]:focus,
+        .login-form input[type="password"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+
+        .login-form button[type="submit"] {
+            align-self: flex-end;
+            margin-top: 10px;
+            width: auto;
+            min-width: 120px;
+            /* Ancho mínimo para el botón */
+        }
+
+        .login-message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            color: red;
+
+            /* Error */
+            /* Colores para el mensaje de éxito */
+            &.success {
+                color: green;
+            }
+        }
+
+        .register-text {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-color);
+            font-size: 0.95rem;
+        }
+
+        .register-text a {
+            font-weight: bold;
+        }
+
+
+        /* --- Responsividad para el panel de login --- */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .search-bar {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .main-nav {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+                flex-direction: column;
+            }
+
+            .main-nav button,
+            .main-nav .logged-in-display {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .main-nav .logged-in-display button {
+                width: auto;
+            }
+
+            .portfolios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-track {
+                height: 250px;
+            }
+
+            /* Para el panel de login en móviles */
+            .login-panel {
+                max-width: 100%;
+                /* Ocupa todo el ancho en móviles */
+            }
+
+            .login-panel-content {
+                flex-direction: column;
+                /* Apila imagen y formulario */
+                max-width: 100%;
+                /* Asegura que el contenido ocupe el ancho del panel */
+            }
+
+            .login-image-container {
+                height: 150px;
+                /* Altura fija para la imagen en móviles */
+                padding: 10px;
+            }
+
+            .login-form-container {
+                padding: 20px;
+            }
+        }
+
+
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+        }
+
+
+        /* ################### */
+        .user-profile-button {
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--trasparente);
+            padding: 6px 12px;
+
+        }
+
+        .profile-avatar {
+            width: 32px;
+
+            height: 32px;
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 1px solid var(--border-color);
+
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        .user-profile-button:hover .profile-avatar {
+            border-color: var(--primary-color);
+
+        }
+
+
+        .user-profile-button .fa-caret-down {
+            margin-left: 0;
+
+            color: var(--text-color);
+
+        }
+
+        /* Adaptación para Modo Oscuro */
+        body.dark-mode .profile-avatar {
+            border-color: var(--secondary-color);
+            /* Borde claro en modo oscuro */
+        }
+
+        body.dark-mode .user-profile-button:hover .profile-avatar {
+            border-color: var(--primary-color);
+            /* Color primario de dark mode para el borde al pasar el mouse */
+        }
+
+        body.dark-mode .user-profile-button .fa-caret-down {
+            color: var(--secondary-color);
+            /* Color de la flecha en modo oscuro */
+        }
+
+        /* ############# */
+
+
+        .notification-icon-container,
+        .user-profile-dropdown-container {
+            position: relative;
+            display: inline-block;
+
+        }
+
+
+        .notification-button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+
+        }
+
+        .notification-count {
+            background-color: var(--accent-color);
+            /* Naranja/Dorado de tu paleta */
+            color: var(--white);
+            /* Blanco puro */
+            border-radius: 50%;
+            padding: 2px 7px;
+            font-size: 0.75rem;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            min-width: 20px;
+            text-align: center;
+            line-height: 1;
+            box-shadow: var(--shadow-color) 0px 1px 3px;
+            display: none;
+            /* Oculto por defecto, se muestra con JS si hay notificaciones */
+        }
+
+        /* Estilos de los menús desplegables (comunes para notificaciones y perfil) */
+        .dropdown-menu {
+            display: none;
+            /* Oculto por defecto */
+            position: absolute;
+            background-color: var(--bg-color-light);
+            /* Fondo claro de tu paleta */
+            min-width: 280px;
+            /* Ancho suficiente para contenido */
+            max-width: 350px;
+            /* Límite para que no sea muy ancho */
+            box-shadow: var(--shadow-color) 0px 8px 16px;
+            z-index: 1000;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            /* Borde sutil de tu paleta */
+            top: calc(100% + 10px);
+            /* Posición debajo del botón, con un poco de espacio */
+            right: 0;
+            /* Alineado a la derecha del botón contenedor */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+        }
+
+        .dropdown-menu.active {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Header del dropdown (ej. "Notificaciones") */
+        .dropdown-header {
+            padding: 10px 15px;
+            font-weight: bold;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--primary-color);
+            /* Azul Brillante de tu paleta */
+            background-color: var(--bg-color-dark);
+            /* Gris muy claro de tu paleta */
+        }
+
+        .notification-list {
+            max-height: 300px;
+            /* Altura máxima para scroll */
+            overflow-y: auto;
+            /* Estilo para la barra de scroll si es necesario */
+            scrollbar-width: thin;
+            /* Firefox */
+            scrollbar-color: var(--secondary-color) var(--bg-color-dark);
+            /* Firefox */
+        }
+
+        .notification-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .notification-list::-webkit-scrollbar-track {
+            background: var(--bg-color-dark);
+        }
+
+        .notification-list::-webkit-scrollbar-thumb {
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+            border: 2px solid var(--bg-color-dark);
+        }
+
+
+        /* Estilo base para cada ítem de notificación */
+        .notification-item {
+            display: flex;
+            flex-direction: column;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            /* Gris Oscuro Profundo de tu paleta */
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+            /* Quitar subrayado por defecto */
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-item:hover {
+            background-color: var(--bg-color-dark);
+            /* Gris muy claro para hover en modo claro */
+        }
+
+        .notification-item .notification-detail {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            /* Asegura que el texto principal sea visible */
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+            /* Alinea ícono y texto al inicio */
+            gap: 8px;
+            /* Espacio entre el icono y el texto del detalle */
+        }
+
+        .notification-item .notification-detail i {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            /* Color primario de tu paleta para los íconos */
+            flex-shrink: 0;
+            /* Evita que el ícono se encoja */
+        }
+
+        .notification-item .notification-time {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            /* Gris Medio de tu paleta */
+            text-align: right;
+            width: 100%;
+        }
+
+        .notification-item.no-notifications {
+            text-align: center;
+            padding: 20px 15px;
+            color: var(--secondary-color);
+        }
+
+        /* Estilos específicos para los 3 tipos de notificación */
+        /* Asegúrate de que estos colores contrasten bien en modo claro */
+        .notification-item.notification-type-friend-request .notification-detail i {
+            color: #28A745;
+            /* Verde para solicitudes de amistad (buen contraste) */
+        }
+
+        .notification-item.notification-type-comment .notification-detail i {
+            color: #17A2B8;
+            /* Azul cian para comentarios (buen contraste) */
+        }
+
+        .notification-item.notification-type-achievement .notification-detail i {
+            color: #FFC107;
+            /* Amarillo/Naranja para logros (buen contraste) */
+        }
+
+
+        /* Footer del dropdown (ej. "Ver todas las notificaciones") */
+        .dropdown-footer {
+            padding: 10px 15px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .dropdown-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .dropdown-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Ítems del menú desplegable de perfil */
+        .dropdown-item {
+            display: block;
+            padding: 10px 15px;
+            color: var(--text-color);
+            /* Gris Oscuro Profundo de tu paleta */
+            background: none;
+            width: 100%;
+            text-align: left;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-color-dark);
+            /* Gris muy claro para hover en modo claro */
+        }
+
+
+        /* --- Adaptación para Modo Oscuro (solo para los nuevos elementos) --- */
+        body.dark-mode .dropdown-menu {
+            background-color: var(--bg-color-dark);
+            /* Fondo oscuro de tu paleta */
+            border-color: var(--border-color);
+            /* Mantener borde o ajustar si es necesario */
+            box-shadow: var(--shadow-color) 0px 8px 16px;
+        }
+
+        body.dark-mode .dropdown-header {
+            background-color: var(--bg-color-light);
+            /* Un tono más claro del oscuro para el encabezado */
+            color: var(--primary-color);
+            /* Azul de tu paleta (el que usas para dark mode) */
+            border-color: var(--border-color);
+        }
+
+        body.dark-mode .notification-list::-webkit-scrollbar-track {
+            background: var(--bg-color-light);
+        }
+
+        body.dark-mode .notification-list::-webkit-scrollbar-thumb {
+            background-color: var(--secondary-color);
+            border: 2px solid var(--bg-color-light);
+        }
+
+        body.dark-mode .notification-item,
+        body.dark-mode .dropdown-item {
+            color: var(--text-color);
+            /* El color de texto de dark-mode de tu paleta */
+        }
+
+        body.dark-mode .notification-item:hover,
+        body.dark-mode .dropdown-item:hover {
+            background-color: var(--bg-color-light);
+            /* Un tono más claro del oscuro para hover */
+        }
+
+        body.dark-mode .notification-count {
+            background-color: var(--accent-color);
+            /* El naranja/dorado de dark-mode de tu paleta */
+            color: var(--bg-color-dark);
+            /* O un color que contraste bien, ej: blanco */
+        }
+
+        /* Colores específicos para tipos de notificación en modo oscuro */
+        body.dark-mode .notification-item.notification-type-friend-request .notification-detail i {
+            color: #4CAF50;
+            /* Verde más brillante en dark mode */
+        }
+
+        body.dark-mode .notification-item.notification-type-comment .notification-detail i {
+            color: #64B5F6;
+            /* Azul más brillante en dark mode */
+        }
+
+        body.dark-mode .notification-item.notification-type-achievement .notification-detail i {
+            color: #FFD54F;
+            /* Amarillo más brillante en dark mode */
+        }
+
+        /* --- FIN DE ESTILOS NUEVOS PARA HEADER --- */
+
+        /* ... (TUS MEDIA QUERIES ORIGINALES VAN AQUÍ. ES POSIBLE QUE NECESITES AJUSTARLAS
+       PARA LOS NUEVOS ELEMENTOS DEL HEADER EN PANTALLAS PEQUEÑAS,
+       PERO MANTENDRÉ ESTE ARCHIVO LO MÁS LIGERO POSIBLE) ... */
+        /* menus secundarios */
+        /* public/css/style.css */
+
+        /* ... (TODO TU CSS ORIGINAL Y EL CSS ANTERIOR PARA EL HEADER SE MANTIENEN AQUÍ, SIN CAMBIOS) ... */
+
+        /* --- INICIO DE ESTILOS NUEVOS PARA SUB-MENÚ Y SECCIÓN DE ÁLBUMES --- */
+
+        /* Estilos del Sub-menú */
+        .sub-menu {
+            background-color: var(--bg-color-dark);
+            /* Gris muy claro de tu paleta */
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            /* Borde sutil */
+            box-shadow: var(--shadow-color) 0px 2px 4px;
+            /* Sombra sutil */
+        }
+
+        .sub-menu-content {
+            display: flex;
+            justify-content: center;
+            /* Centrar los botones */
+            gap: 20px;
+            /* Espacio entre botones */
+        }
+
+        .sub-menu-btn {
+            background: none;
+            border: none;
+            padding: 8px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            /* Gris Medio para texto inactivo */
+            cursor: pointer;
+            transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+            border-bottom: 2px solid transparent;
+            /* Borde inferior para el indicador activo */
+        }
+
+        .sub-menu-btn:hover {
+            color: var(--primary-color);
+            /* Azul Brillante al pasar el mouse */
+            background-color: rgba(var(--primary-color-rgb, 0, 123, 255), 0.1);
+            /* Ligero fondo transparente con tu primary color */
+            border-radius: 5px;
+        }
+
+        .sub-menu-btn.active {
+            color: var(--primary-color);
+            /* Azul Brillante para el activo */
+            border-bottom: 2px solid var(--primary-color);
+            /* Línea debajo del activo */
+            background-color: rgba(var(--primary-color-rgb, 0, 123, 255), 0.05);
+            /* Muy ligero fondo para el activo */
+        }
+
+        /* Contenido Principal - Alternancia de secciones */
+        .main-content {
+            padding-top: 30px;
+            /* Espacio entre el sub-menú y el contenido */
+        }
+
+        /*    .content-section {
+            display: none;
+           
+            padding: 20px 0;
+        }
+
+        .content-section.active {
+            display: block;
+          
+        }
+ */
+        .content-section {
+            position: relative;
+            /* Muy importante para posicionar el botón flotante */
+            display: none;
+            padding: 20px 0;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            /* Color de título de tu paleta */
+        }
+
+        /* Estilo del botón flotante "Agregar Álbum" */
+        .add-album-button {
+            position: absolute;
+            /* Posicionamiento absoluto dentro de .content-section */
+            top: 20px;
+            /* Distancia desde la parte superior de .content-section */
+            right: 20px;
+            /* Distancia desde la derecha de .content-section */
+            background-color: var(--accent-color);
+            /* Naranja/Dorado de tu paleta */
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            /* Espacio entre el icono y el texto */
+            box-shadow: var(--shadow-color) 0px 4px 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 10;
+            /* Asegura que esté por encima de los álbumes */
+        }
+
+        .add-album-button:hover {
+            background-color: #FF7F00;
+            /* Un tono un poco más oscuro de naranja al pasar el mouse */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-color) 0px 6px 12px;
+        }
+
+        .add-album-button i {
+            font-size: 1.2rem;
+        }
+
+        /* Adaptación para Modo Oscuro */
+        body.dark-mode .add-album-button {
+            background-color: var(--accent-color);
+            /* Oro de tu paleta oscura */
+            color: var(--bg-color-dark);
+            /* Color de texto que contraste bien, ej: el fondo oscuro */
+            box-shadow: var(--shadow-color) 0px 4px 8px;
+        }
+
+        body.dark-mode .add-album-button:hover {
+            background-color: #FFC107;
+            /* Un tono un poco más claro de oro al pasar el mouse */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-color) 0px 6px 12px;
+        }
+
+
+        /* Pequeño ajuste para el h2 Mis Álbumes, para que no colisione con el botón */
+        #albumsSection h2.section-title {
+            margin-right: 180px;
+            /* Deja espacio a la derecha para el botón */
+            display: inline-block;
+            /* Para que el margin-right funcione con el botón absoluto */
+        }
+
+        /* Estilos para la cuadrícula de Álbumes */
+        .albums-grid {
+            display: flex;
+            flex-wrap: wrap;
+            /* Permitir que los ítems salten de línea */
+            gap: 20px;
+            /* Espacio entre las tarjetas de álbum */
+            justify-content: center;
+            /* Centrar álbumes si no llenan la fila */
+            padding: 20px 0;
+        }
+
+        .album-card {
+            position: relative;
+            width: 280px;
+            /* Ancho fijo para cada tarjeta de álbum */
+            height: 280px;
+            /* Altura fija para que sean cuadrados */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: var(--shadow-color) 0px 4px 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            background-color: var(--bg-color-dark);
+            /* Fondo para cuando la imagen no carga */
+        }
+
+        .album-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-color) 0px 8px 16px;
+        }
+
+        .album-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Asegura que la imagen cubra el espacio sin distorsionarse */
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .album-card:hover img {
+            transform: scale(1.05);
+            /* Pequeño zoom al pasar el mouse */
+        }
+
+        .album-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+            /* Gradiente oscuro inferior */
+            color: var(--white);
+            padding: 15px;
+            box-sizing: border-box;
+            opacity: 0;
+            /* Oculto por defecto */
+            transform: translateY(100%);
+            /* Empieza fuera de vista */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            height: 100%;
+            /* Ocupa todo el alto para el gradiente */
+        }
+
+        .album-card:hover .album-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .album-title {
+            font-size: 1.2rem;
+            margin-top: auto;
+            /* Empuja el título al final del overlay */
+            margin-bottom: 10px;
+            /* Espacio entre título y acciones */
+            color: var(--white);
+            /* Asegurar color blanco */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            /* Sombra para mejor legibilidad */
+        }
+
+        .album-actions {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: flex-start;
+            /* Alinea los botones de acción a la izquierda */
+        }
+
+        .action-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Fondo semitransparente */
+            color: var(--white);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            /* Botones redondos */
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background-color: var(--primary-color);
+            /* Color primario al pasar el mouse */
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .action-btn.delete-btn:hover {
+            background-color: #dc3545;
+            /* Rojo para el botón de eliminar */
+            border-color: #dc3545;
+        }
+
+
+
+        /* --- Adaptación para Modo Oscuro (solo para los nuevos elementos) --- */
+        body.dark-mode .sub-menu {
+            background-color: var(--bg-color-light);
+            /* Un gris más oscuro para dark mode */
+            border-color: var(--border-color);
+        }
+
+        body.dark-mode .sub-menu-btn {
+            color: var(--secondary-color);
+        }
+
+        body.dark-mode .sub-menu-btn:hover {
+            color: var(--primary-color);
+            background-color: rgba(var(--primary-color-rgb, 97, 218, 251), 0.1);
+            /* Usar RGB de primary-color de dark-mode */
+        }
+
+        body.dark-mode .sub-menu-btn.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            background-color: rgba(var(--primary-color-rgb, 97, 218, 251), 0.05);
+        }
+
+        body.dark-mode .album-card {
+            background-color: var(--bg-color-light);
+            box-shadow: var(--shadow-color) 0px 4px 8px;
+        }
+
+        body.dark-mode .album-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        body.dark-mode .album-title {
+            color: var(--white2);
+        }
+
+        body.dark-mode .action-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        body.dark-mode .action-btn:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        body.dark-mode .action-btn.delete-btn:hover {
+            background-color: #EF5350;
+            /* Rojo más suave para dark mode */
+        }
+
+        /* --- FIN DE ESTILOS NUEVOS PARA SUB-MENÚ Y SECCIÓN DE ÁLBUMES --- */
+
+        /* ... (TUS MEDIA QUERIES ORIGINALES Y CUALQUIER OTRO CSS QUE YA TENÍAS) ... */
+
+
+       
+      
